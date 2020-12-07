@@ -7,8 +7,10 @@ const morgan = require('morgan');
 const port = process.env.PORT;
 const dbConfig = require('./config/db.config');
 const routeNews = require('./routes/news.route');
+const cors = require('cors')
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors())
 app.use(bodyParser.json());
 
 mongoose.connect(dbConfig.mongodbConfig, {
